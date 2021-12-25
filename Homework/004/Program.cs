@@ -1,13 +1,8 @@
-﻿
-//Задание 4: выводим в консоль все цвета фона;
+﻿//Задание 5поп: выводим в консоль все цвета фона;
 
-int consoleColor;
-
-for (consoleColor = 0; consoleColor <= 15; consoleColor++)
+foreach(ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
 {
-    Console.BackgroundColor = (ConsoleColor)consoleColor;
-
-    Console.WriteLine("Background color set to " + (ConsoleColor)consoleColor);
+    Console.BackgroundColor = color;
+    Console.WriteLine($"Background color set to {color}");
 }
 Console.ReadKey();
-
