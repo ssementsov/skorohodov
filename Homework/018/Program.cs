@@ -10,27 +10,27 @@ namespace _018
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("enter your number");
-            string usersNumber = Console.ReadLine();
+            Console.Write("enter your number: ");
+            int usersNumber = Convert.ToInt32(Console.ReadLine());
+            int restUsersNumber;
+            int reverseUsersNumber = 0;
+            int tempUsersNumber = usersNumber;
 
-            usersNumber = usersNumber.Replace("-", "");
-            usersNumber = usersNumber.Replace(".", "");
-            usersNumber = usersNumber.Replace(",", "");
-
-            char[] usersNumberArray = usersNumber.ToCharArray();
-            Array.Reverse(usersNumberArray);
-            string reverseUsersNumber = new string(usersNumberArray);
-
-            bool isUsersNumberPalindrom = (usersNumber == reverseUsersNumber);
-
-            if (isUsersNumberPalindrom)
+            while (usersNumber > 0)
             {
-                Console.WriteLine("Your number is palindrom");
+                restUsersNumber = usersNumber % 10;
+                reverseUsersNumber = (reverseUsersNumber * 10) + restUsersNumber;
+                usersNumber /= 10;
             }
-            else
-            {
-                Console.WriteLine("Your number is not palindrom");
-            }
+            Console.WriteLine($"reverse users number: {reverseUsersNumber}");
+
+            bool isUsersNumberPalindrome = tempUsersNumber == reverseUsersNumber;
+            string usersNumberIsPalindrome = "Your number is palindrome!";
+            string usersNumberIsNotPalindrome = "Your number  is not palindrome!";
+
+            string result = isUsersNumberPalindrome ? usersNumberIsPalindrome : usersNumberIsNotPalindrome;
+            Console.WriteLine(result);
+
             Console.ReadKey();
         }
     }
