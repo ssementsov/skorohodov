@@ -13,12 +13,40 @@ namespace _042
             Console.Write("Enter your string: ");
             string usersString = Console.ReadLine();
 
-            int firstSpace = usersString.IndexOf(' ');
-            int secondSpace = usersString.LastIndexOf(' ');
-
-            string result = usersString.Substring(firstSpace, secondSpace - firstSpace);
+            string result = CopySpaceToSpace(usersString);
             Console.Write($"Result string: {result}");
+
             Console.ReadKey();
+        }
+        static string CopySpaceToSpace(string usersString)
+        {
+            int firstSpace = 0, secondSpace = 0;
+
+            for (int i = 0; i < usersString.Length; i++)
+            {
+                if (usersString[i] == ' ')
+                {
+                    if (firstSpace == 0)
+                    {
+                        firstSpace = i;
+                    }
+
+                    else
+                    {
+                        secondSpace = i;
+                    }
+
+                }
+            }
+
+            string result = string.Empty;
+
+            for (int i = firstSpace+1; i < secondSpace; i++)
+            {
+                result += usersString[i];
+            }
+
+            return result;
         }
     }
 }
