@@ -11,9 +11,11 @@ namespace _7
             var item = new ConcreteClass();
             item.Method();
 
-            (item as IInterface1).Method();
+            var item1 = item as IInterface1;
+            item1.Method();
 
-            (item as IInterface2).Method();
+            var item2 = item as IInterface2;
+            item2.Method();
 
             Console.ReadKey();
         }
